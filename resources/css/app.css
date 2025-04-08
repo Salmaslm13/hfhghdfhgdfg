@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+@layer base {
+    body {
+        @apply relative z-1 bg-white text-base font-jakarta text-black font-normal;
+    }
+}
+
+@layer components {
+    .menu-item {
+        @apply relative flex items-center gap-3 rounded-lg px-3 py-2 text-theme-sm font-medium;
+    }
+
+    .menu-item-active {
+        @apply bg-brand-50 text-brand-500 dark:bg-brand-500/[0.12] dark:text-brand-400;
+    }
+
+    .menu-item-inactive {
+        @apply text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-gray-300;
+    }
+
+    .menu-item-icon-active {
+        @apply fill-brand-500 dark:fill-brand-400;
+    }
+
+    .menu-item-icon-inactive {
+        @apply fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300;
+    }
+
+    .menu-item-arrow {
+        @apply absolute right-2.5 top-1/2 -translate-y-1/2;
+    }
+
+    .menu-item-arrow-active {
+        @apply rotate-180 stroke-brand-500 dark:stroke-brand-400;
+    }
+
+    .menu-item-arrow-inactive {
+        @apply stroke-gray-500 group-hover:stroke-gray-700 dark:stroke-gray-400 dark:group-hover:stroke-gray-300;
+    }
+
+    .menu-dropdown-item {
+        @apply relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-theme-sm font-medium;
+    }
+
+    .menu-dropdown-item-active {
+        @apply bg-brand-50 text-brand-500 dark:bg-brand-500/[0.12] dark:text-brand-400;
+    }
+
+    .menu-dropdown-item-inactive {
+        @apply text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5;
+    }
+
+    .menu-dropdown-badge {
+        @apply block rounded-full px-2.5 py-0.5 text-xs font-medium uppercase text-brand-500 dark:text-brand-400;
+    }
+
+    .menu-dropdown-badge-active {
+        @apply bg-brand-100 dark:bg-brand-500/20;
+    }
+
+    .menu-dropdown-badge-inactive {
+        @apply bg-brand-50 group-hover:bg-brand-100 dark:bg-brand-500/15 dark:group-hover:bg-brand-500/20;
+    }
+}
+
+@layer utilities {
+
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        @apply size-1.5;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply rounded-full;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-gray-200 dark:bg-gray-700;
+    }
+
+    /* For Remove Date Icon */
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="time"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
+.sidebar:hover {
+    width: 290px;
+}
+
+.sidebar:hover .logo {
+    display: block;
+}
+
+.sidebar:hover .logo-icon {
+    display: none;
+}
+
+.sidebar:hover .sidebar-header {
+    justify-content: space-between;
+}
+
+.sidebar:hover .menu-group-title {
+    display: block;
+}
+
+.sidebar:hover .menu-group-icon {
+    display: none;
+}
+
+.sidebar:hover .menu-item-text {
+    display: inline;
+}
+
+.sidebar:hover .menu-item-arrow {
+    display: block;
+}
+
+.sidebar:hover .menu-dropdown {
+    display: flex;
+}
+
+.tableCheckbox:checked~span span {
+    @apply opacity-100;
+}
+
+.tableCheckbox:checked~span {
+    @apply border-brand-500 bg-brand-500;
+}
+
+
+
+#chartSixteen .apexcharts-legend {
+    @apply !p-0 !pl-6;
+}
+
+
+
+.input-date-icon::-webkit-inner-spin-button,
+.input-date-icon::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    -webkit-appearance: none;
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+    @apply !h-auto !w-auto;
+}
+
+.form-check-input:checked~span {
+    @apply border-[6px] border-brand-500 dark:border-brand-500;
+}
+
+.taskCheckbox:checked~.box span {
+    @apply opacity-100;
+}
+
+.taskCheckbox:checked~p {
+    @apply text-gray-400 line-through;
+}
+
+.taskCheckbox:checked~.box {
+    @apply border-brand-500 bg-brand-500 dark:border-brand-500;
+}
+
+.task {
+    transition: all 0.2s ease;
+    /* Smooth transition for visual effects */
+}
+
+.task.is-dragging {
+    border-radius: 0.75rem;
+    box-shadow:
+        0px 1px 3px 0px rgba(16, 24, 40, 0.1),
+        0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+    opacity: 0.8;
+    cursor: grabbing;
+    /* Changes the cursor to indicate dragging */
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee {
+    display: flex;
+    animation: marquee 60s linear infinite;
+    width: max-content;
+}
+
+.marquee:hover {
+    animation-play-state: paused;
+    /* Berhenti saat hover */
+}
+
+.counter {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.counter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* 
+
+.marquee-left {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-left img {
+    display: inline-block;
+    animation: marquee-left 10s linear infinite;
+}
+
+.marquee-right {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-right img {
+    display: inline-block;
+    animation: marquee-right 10s linear infinite;
+}
+
+@keyframes marquee-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes marquee-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.marquee-left:hover img,
+.marquee-right:hover img {
+    animation-play-state: paused;
+} */
+
+.marquee-left {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-left img {
+    display: inline-block;
+    animation: marquee-left 30s linear infinite;
+}
+
+.marquee-right {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-right img {
+    display: inline-block;
+    animation: marquee-right 30s linear infinite;
+}
+
+@keyframes marquee-left {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes marquee-right {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.marquee-left:hover img,
+.marquee-right:hover img {
+    animation-play-state: paused;
+}
+
+
+.bg-hijau-1:hover .marquee-left img,
+.bg-hijau-1:hover .marquee-right img {
+    animation-play-state: paused;
+}
+
+/* @keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-reverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+} */
+
+/* .animate-marquee {
+    display: flex;
+    animation: marquee 10s linear infinite;
+    width: 200%;
+}
+
+.animate-marquee-reverse {
+    display: flex;
+    animation: marquee-reverse 10s linear infinite;
+    width: 200%;
+} */
+
+
+ .testimonial {
+     transition: opacity 0.5s ease;
+ }
+
+   .h-64 {
+       height: 16rem;
+       /* Set tinggi tetap */
+   }
+
+   .indicator {
+       width: 8px;
+       height: 8px;
+       border-radius: 50%;
+       background-color: #ccc;
+       /* Warna default */
+   }
+
+   .active {
+       background-color: #1D211D;
+       /* Warna untuk indikator aktif */
+   }
+
+   .testimonial {
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+   }
+
+   .testimonial blockquote {
+       flex-grow: 1;
+       /* Memastikan quote mengisi ruang yang tersedia */
+       overflow: hidden;
+       /* Mencegah perubahan ukuran */
+   }
+
+   .testimonial-container {
+       min-height: 300px;
+       /* Sesuaikan tinggi minimum */
+       max-height: 300px;
+       /* Sesuaikan tinggi maksimum */
+       overflow: hidden;
+       /* Hindari perubahan ukuran */
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+   }
+
+/* Marquee Container
+.marquee {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Setiap Kolom Marquee */
+/* .marquee-inner {
+    display: flex;
+    gap: 16px;
+    animation: marquee-scroll 10s linear infinite;
+    width: max-content;
+}
+
+/* Ukuran Gambar */
+/* .marquee-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+
+   .marquee-down {
+       animation: marquee-down 10s linear infinite;
+   }
+
+   .marquee-up {
+       animation: marquee-up 10s linear infinite;
+   }
+
+   @keyframes marquee-down {
+       0% {
+           transform: translateY(0);
+       }
+
+       100% {
+           transform: translateY(100%);
+       }
+   }
+
+   @keyframes marquee-up {
+       0% {
+           transform: translateY(0);
+       }
+
+       100% {
+           transform: translateY(-100%);
+       }
+   } */  
+
+
+
+/* Contoh CSS untuk efek fade */
+.opacity-30 {
+    opacity: 0.3;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.translate-y-10 {
+    transform: translateY(10px);
+}
+
+.translate-y-0 {
+    transform: translateY(0);
+}
+
+/* Transisi */
+.transition-all {
+    transition: all 0.5s ease;
+    /* Ubah durasi sesuai kebutuhan */
+}
+
+
